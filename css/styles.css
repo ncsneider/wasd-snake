@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../fonts/Minecraft.ttf') format('truetype');
+}
+
+/* The body styles are well set up for centering the game container and preventing scrolling. */
+
+body {
+    background-color: #111;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* prevent scrolling */
+}
+
+/* The game container and board styles are correctly set up for positioning and user interaction. */
+
+#game-container {
+    position: relative;
+    height: 600px;
+    width: 600px;
+    border: 4px solid #444;  /* add border */
+    user-select: none;  /* disable text selection */
+    cursor: default;  /* show default cursor */
+}
+
+#game-container * {
+    user-select: none;  /* disable text selection for all children */
+    cursor: default;  /* show default cursor for all children */
+}
+
+#game-board {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    user-select: none;  /* disable text selection */
+}
+
+/* The snake and food styles are simple and effective. */
+
+#game-board .snake-part {
+    background-color: green;
+    position: absolute;
+}
+
+#game-board .food {
+    background-color: red;
+    position: absolute;
+}
+
+/* The button and score styles are correctly positioned. */
+
+button {
+    position: absolute;
+    top: 10px;
+}
+
+#start-game {
+    right: 10px;
+}
+
+#fullscreen-button {
+    right: 100px;
+}
+
+#score {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-family: 'Minecraft', sans-serif;
+}
+
+/* The game over message styles are correctly set up for centering and text wrapping. The animation for the restart message is a nice touch. */
+
+@keyframes blink {
+    0% {opacity: 1;}
+    50% {opacity: 0.4;}
+    100% {opacity: 1;}
+}
+
+#game-over-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #b7a58c;
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Minecraft', sans-serif;
+    white-space: nowrap; 
+}
+
+#game-over-score-message {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffffb1;
+    font-size: 26px;
+    text-align: center;
+    font-family: 'Minecraft', sans-serif;
+}
+
+#restart-message {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff0000;
+    font-size: 26px;
+    text-align: center;
+    font-family: 'Minecraft', sans-serif;
+    animation: blink 2s infinite;
+    white-space: nowrap;
+}
+
+/* The game over overlay is a nice touch to darken the game board during the game over state. */
+
+#game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.263);  /* black with opacity change*/
+}
